@@ -1,0 +1,35 @@
+{
+  "name": "ts-left-join",
+  "version": "1.0.0",
+  "description": "Typescript-friendly implementation of a left join on arrays",
+  "main": "dist/index.js",
+  "types": "dist/index.ts",
+  "scripts": {
+    "build": "tsc --build",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barbarrosa/ts-left-join.git"
+  },
+  "keywords": [
+    "typescript",
+    "left-join",
+    "join"
+  ],
+  "author": "Tim Bradley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Barbarrosa/ts-left-join/issues"
+  },
+  "homepage": "https://github.com/Barbarrosa/ts-left-join#readme",
+  "devDependencies": {
+    "@types/faker": "^4.1.5",
+    "@types/jest": "^23.3.13",
+    "faker": "^4.1.0",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.2.4"
+  },
+  "dependencies": {}
+}

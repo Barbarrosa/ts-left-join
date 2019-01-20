@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`empty left, empty right 1`] = `Array []`;
+
+exports[`empty left, one right 1`] = `Array []`;
+
+exports[`one left, empty right 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": "redundant",
+    },
+  },
+]
+`;
+
+exports[`one left, one right match 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": "redundant",
+    },
+    "one right match": Object {
+      "Ferry": "redundant",
+    },
+  },
+]
+`;
+
+exports[`one left, one right non-match 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": "redundant",
+    },
+  },
+]
+`;
+
+exports[`one left, two right multiple match 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": "redundant",
+    },
+    "two right multiple match": Object {
+      "Ferry": "redundant",
+    },
+  },
+  Object {
+    "one left": Object {
+      "Connecticut": "redundant",
+    },
+    "two right multiple match": Object {
+      "Ferry": "redundant",
+    },
+  },
+]
+`;
+
+exports[`two left, one right match 1`] = `
+Array [
+  Object {
+    "one right match": Object {
+      "Ferry": "redundant",
+    },
+    "two left": Object {
+      "Connecticut": "redundant",
+    },
+  },
+  Object {
+    "two left": Object {
+      "Connecticut": "Oval",
+    },
+  },
+]
+`;
+
+exports[`two left, three right different match w/ one multiple 1`] = `
+Array [
+  Object {
+    "three right different match w/ one multiple": Object {
+      "Ferry": "redundant",
+    },
+    "two left": Object {
+      "Connecticut": "redundant",
+    },
+  },
+  Object {
+    "three right different match w/ one multiple": Object {
+      "Ferry": "Oval",
+    },
+    "two left": Object {
+      "Connecticut": "Oval",
+    },
+  },
+  Object {
+    "three right different match w/ one multiple": Object {
+      "Ferry": "Oval",
+    },
+    "two left": Object {
+      "Connecticut": "Oval",
+    },
+  },
+]
+`;
+
+exports[`two left, two right different match 1`] = `
+Array [
+  Object {
+    "two left": Object {
+      "Connecticut": "redundant",
+    },
+    "two right different match": Object {
+      "Ferry": "redundant",
+    },
+  },
+  Object {
+    "two left": Object {
+      "Connecticut": "Oval",
+    },
+    "two right different match": Object {
+      "Ferry": "Oval",
+    },
+  },
+]
+`;
+
+exports[`two left, two right same match 1`] = `
+Array [
+  Object {
+    "two left": Object {
+      "Connecticut": "redundant",
+    },
+    "two right same match": Object {
+      "Ferry": "redundant",
+    },
+  },
+  Object {
+    "two left": Object {
+      "Connecticut": "redundant",
+    },
+    "two right same match": Object {
+      "Ferry": "redundant",
+    },
+  },
+]
+`;
