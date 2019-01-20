@@ -1,9 +1,9 @@
 {
   "name": "ts-left-join",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Typescript-friendly implementation of a left join on arrays",
   "main": "dist/index.js",
-  "types": "dist/index.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --build",
     "test": "jest",
