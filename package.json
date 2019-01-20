@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc --build",
     "test": "jest",
-    "prepublish": "npm-run-all test build"
+    "prepublishOnly": "npm install && npm-run-all test build"
   },
   "repository": {
     "type": "git",
