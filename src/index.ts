@@ -1,41 +1,45 @@
+import { ObjectKey } from "ObjectKey";
+
 type LookupList<C extends string,L> =  { [V in C]: L };
 
 export default function LeftJoin<
     R extends F,
     S extends K,
-    G extends string,
-    J extends string,
-    F extends string,
-    K extends string,
+    G extends Exclude<ObjectKey,J>,
+    J extends Exclude<ObjectKey,G>,
+    F extends ObjectKey,
+    K extends ObjectKey,
     B extends { [P in F]: any },
     L extends { [Z in K]: any },
     C extends B[R] & L[S],
     U extends { [P in G]: B; } & { [Z in J]?: L; }
 >(
-    leftResultName: G, leftCollection: B[], rightResultName: J, rightCollection: L[], leftJoinField: R, rightJoinField: S
+    leftResultAlias: G, leftCollection: B[], rightResultAlias: J, rightCollection: L[], leftField: R, rightField: S
 ): U[] {
 
-    const indexedLookup: LookupList<C,L[]> = rightCollection.reduce((a,i) => {
-        const lookupSection: L[] = a[i[rightJoinField]] || [];
-        a[i[rightJoinField]] = [...lookupSection, i];
-        return a;
+    const rightBuckets: LookupList<C,L[]> = rightCollection.reduce((rightBucketsPart,rightRow) => {
+        const rightValue = rightRow[rightField];
+        const rightBucket = rightBucketsPart[rightValue] || [];
+        rightBucketsPart[rightValue] = [...rightBucket, rightRow];
+        return rightBucketsPart;
     }, {} as LookupList<C,L[]>);
-    const combined:U[] = [];
-    for(const item of leftCollection) {
-        const lookupValue: C = item[leftJoinField];
-        const lookupSection: L[S][] = indexedLookup[lookupValue];
-        if(lookupSection) {
-            for(const rightItem of lookupSection) {
-                combined.push({
-                    [leftResultName]: item,
-                    [rightResultName]: rightItem
-                } as U);
-            }
+
+    return leftCollection.reduce((joinedRows: U[], leftRow: B) => {
+        const leftValue: C = leftRow[leftField];
+        const leftRowData: U = {
+            [leftResultAlias]: leftRow,
+        } as U;
+        const rightBucket = rightBuckets[leftValue];
+        if(rightBucket) {
+            rightBucket.forEach((rightValue: L) => {
+                joinedRows.push({
+                    ...leftRowData,
+                    [rightResultAlias]: rightValue,
+                });
+            });
         } else {
-            combined.push({
-                [leftResultName]: item,
-            } as U);
+            joinedRows.push(leftRowData);
         }
-    }
-    return combined;
+        return joinedRows;
+    }, []);
 }

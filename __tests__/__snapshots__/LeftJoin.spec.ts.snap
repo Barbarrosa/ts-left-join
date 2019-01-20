@@ -1,10 +1,157 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`empty left, empty right 1`] = `Array []`;
+exports[`number key empty left, empty right 1`] = `Array []`;
 
-exports[`empty left, one right 1`] = `Array []`;
+exports[`number key empty left, one right 1`] = `Array []`;
 
-exports[`one left, empty right 1`] = `
+exports[`number key one left, empty right 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": 59105,
+    },
+  },
+]
+`;
+
+exports[`number key one left, one right match 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": 59105,
+    },
+    "one right match": Object {
+      "Ferry": 59105,
+    },
+  },
+]
+`;
+
+exports[`number key one left, one right non-match 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": 59105,
+    },
+  },
+]
+`;
+
+exports[`number key one left, two right multiple match 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": 59105,
+    },
+    "two right multiple match": Object {
+      "Ferry": 59105,
+    },
+  },
+  Object {
+    "one left": Object {
+      "Connecticut": 59105,
+    },
+    "two right multiple match": Object {
+      "Ferry": 59105,
+    },
+  },
+]
+`;
+
+exports[`number key two left, one right match 1`] = `
+Array [
+  Object {
+    "one right match": Object {
+      "Ferry": 59105,
+    },
+    "two left": Object {
+      "Connecticut": 59105,
+    },
+  },
+  Object {
+    "two left": Object {
+      "Connecticut": 74569,
+    },
+  },
+]
+`;
+
+exports[`number key two left, three right different match w/ one multiple 1`] = `
+Array [
+  Object {
+    "three right different match w/ one multiple": Object {
+      "Ferry": 59105,
+    },
+    "two left": Object {
+      "Connecticut": 59105,
+    },
+  },
+  Object {
+    "three right different match w/ one multiple": Object {
+      "Ferry": 74569,
+    },
+    "two left": Object {
+      "Connecticut": 74569,
+    },
+  },
+  Object {
+    "three right different match w/ one multiple": Object {
+      "Ferry": 74569,
+    },
+    "two left": Object {
+      "Connecticut": 74569,
+    },
+  },
+]
+`;
+
+exports[`number key two left, two right different match 1`] = `
+Array [
+  Object {
+    "two left": Object {
+      "Connecticut": 59105,
+    },
+    "two right different match": Object {
+      "Ferry": 59105,
+    },
+  },
+  Object {
+    "two left": Object {
+      "Connecticut": 74569,
+    },
+    "two right different match": Object {
+      "Ferry": 74569,
+    },
+  },
+]
+`;
+
+exports[`number key two left, two right same match 1`] = `
+Array [
+  Object {
+    "two left": Object {
+      "Connecticut": 59105,
+    },
+    "two right same match": Object {
+      "Ferry": 59105,
+    },
+  },
+  Object {
+    "two left": Object {
+      "Connecticut": 59105,
+    },
+    "two right same match": Object {
+      "Ferry": 59105,
+    },
+  },
+]
+`;
+
+exports[`string key empty left, empty right 1`] = `Array []`;
+
+exports[`string key empty left, one right 1`] = `Array []`;
+
+exports[`string key one left, empty right 1`] = `
 Array [
   Object {
     "one left": Object {
@@ -14,7 +161,7 @@ Array [
 ]
 `;
 
-exports[`one left, one right match 1`] = `
+exports[`string key one left, one right match 1`] = `
 Array [
   Object {
     "one left": Object {
@@ -27,7 +174,7 @@ Array [
 ]
 `;
 
-exports[`one left, one right non-match 1`] = `
+exports[`string key one left, one right non-match 1`] = `
 Array [
   Object {
     "one left": Object {
@@ -37,7 +184,7 @@ Array [
 ]
 `;
 
-exports[`one left, two right multiple match 1`] = `
+exports[`string key one left, two right multiple match 1`] = `
 Array [
   Object {
     "one left": Object {
@@ -58,7 +205,7 @@ Array [
 ]
 `;
 
-exports[`two left, one right match 1`] = `
+exports[`string key two left, one right match 1`] = `
 Array [
   Object {
     "one right match": Object {
@@ -76,7 +223,7 @@ Array [
 ]
 `;
 
-exports[`two left, three right different match w/ one multiple 1`] = `
+exports[`string key two left, three right different match w/ one multiple 1`] = `
 Array [
   Object {
     "three right different match w/ one multiple": Object {
@@ -105,7 +252,7 @@ Array [
 ]
 `;
 
-exports[`two left, two right different match 1`] = `
+exports[`string key two left, two right different match 1`] = `
 Array [
   Object {
     "two left": Object {
@@ -126,7 +273,7 @@ Array [
 ]
 `;
 
-exports[`two left, two right same match 1`] = `
+exports[`string key two left, two right same match 1`] = `
 Array [
   Object {
     "two left": Object {
@@ -142,6 +289,153 @@ Array [
     },
     "two right same match": Object {
       "Ferry": "redundant",
+    },
+  },
+]
+`;
+
+exports[`symbol key empty left, empty right 1`] = `Array []`;
+
+exports[`symbol key empty left, one right 1`] = `Array []`;
+
+exports[`symbol key one left, empty right 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": Symbol(valueOne),
+    },
+  },
+]
+`;
+
+exports[`symbol key one left, one right match 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": Symbol(valueOne),
+    },
+    "one right match": Object {
+      "Ferry": Symbol(valueOne),
+    },
+  },
+]
+`;
+
+exports[`symbol key one left, one right non-match 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": Symbol(valueOne),
+    },
+  },
+]
+`;
+
+exports[`symbol key one left, two right multiple match 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": Symbol(valueOne),
+    },
+    "two right multiple match": Object {
+      "Ferry": Symbol(valueOne),
+    },
+  },
+  Object {
+    "one left": Object {
+      "Connecticut": Symbol(valueOne),
+    },
+    "two right multiple match": Object {
+      "Ferry": Symbol(valueOne),
+    },
+  },
+]
+`;
+
+exports[`symbol key two left, one right match 1`] = `
+Array [
+  Object {
+    "one right match": Object {
+      "Ferry": Symbol(valueOne),
+    },
+    "two left": Object {
+      "Connecticut": Symbol(valueOne),
+    },
+  },
+  Object {
+    "two left": Object {
+      "Connecticut": Symbol(valueTwo),
+    },
+  },
+]
+`;
+
+exports[`symbol key two left, three right different match w/ one multiple 1`] = `
+Array [
+  Object {
+    "three right different match w/ one multiple": Object {
+      "Ferry": Symbol(valueOne),
+    },
+    "two left": Object {
+      "Connecticut": Symbol(valueOne),
+    },
+  },
+  Object {
+    "three right different match w/ one multiple": Object {
+      "Ferry": Symbol(valueTwo),
+    },
+    "two left": Object {
+      "Connecticut": Symbol(valueTwo),
+    },
+  },
+  Object {
+    "three right different match w/ one multiple": Object {
+      "Ferry": Symbol(valueTwo),
+    },
+    "two left": Object {
+      "Connecticut": Symbol(valueTwo),
+    },
+  },
+]
+`;
+
+exports[`symbol key two left, two right different match 1`] = `
+Array [
+  Object {
+    "two left": Object {
+      "Connecticut": Symbol(valueOne),
+    },
+    "two right different match": Object {
+      "Ferry": Symbol(valueOne),
+    },
+  },
+  Object {
+    "two left": Object {
+      "Connecticut": Symbol(valueTwo),
+    },
+    "two right different match": Object {
+      "Ferry": Symbol(valueTwo),
+    },
+  },
+]
+`;
+
+exports[`symbol key two left, two right same match 1`] = `
+Array [
+  Object {
+    "two left": Object {
+      "Connecticut": Symbol(valueOne),
+    },
+    "two right same match": Object {
+      "Ferry": Symbol(valueOne),
+    },
+  },
+  Object {
+    "two left": Object {
+      "Connecticut": Symbol(valueOne),
+    },
+    "two right same match": Object {
+      "Ferry": Symbol(valueOne),
     },
   },
 ]
