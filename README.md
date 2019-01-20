@@ -1,4 +1,4 @@
-# ts-left-join
+# ts-left-join [![Build Status](https://travis-ci.com/Barbarrosa/ts-left-join.svg?branch=master)](https://travis-ci.com/Barbarrosa/ts-left-join)
 *Typescript-friendly implementation of a left join on arrays*
 
 This library can provide basic left-joins for arrays, but you may want to check out [`data-forge-ts`](https://github.com/data-forge/data-forge-ts/) if you need to do some serious data wrangling. They have a more comprehensive [join implementation](https://github.com/data-forge/data-forge-ts/blob/master/docs/guide.md#join).

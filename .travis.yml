@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - node
+  - lts/*
+deploy:
+  provider: npm
+  email: fennasnogothrim@gmail.com
+  api_key:
+    secure: 5BSblqFddC8x/9QvdYJ/ZQtBraEce16d8aFuTBdBRCVaUZEgTdXFQM1d2F6ws9lqSvKfd4szykEy6XFweI/2f4cfedjzWdOD29tZ7yXwT+YotpslBqWvvAcxM2mjPMuv59+ld8CtbL4iu1uc3D+JM/qOlFNpogmU80fz3NNjH3V9Q1IgJ4fLf46pPjP+PB0orYgM3eAjcNVoO20B49EUDbcXusvZ8jOkTk4e/ynuYXHz0HvNkvmlfqPR7af6uTtsaN/jqXXLSKaI8y/B43sBDQ43VQ0Nb8Fn4Bzht5Rnkfc4chMs//4TKhL6KXmcIwq8RA0aioCAzFiQ7kNcuWco9DH5dSg/bEKTckHWOleqa/ilv5ISqIlRzTj7wgRIF0y6dFcJmKtaCZKCaVBGGvDWMddO5/evSbZaqSi7JFwjSCqsow6czYC9hbWqhSou/u4RCsP2PgOqewlfxBA9FYSOSHb6+61YqUylL6pb1hlc7HKYNss4HudnER632O0DLClukDwhlLYZ6aK/xLtfOrKHrMI10rDQhSos9Ho9aRT8IJcIf40V/INuo5/CVJAldquZxD0fu6iGcoJ9biBNsXgpj8Jln0Q9Nko9cz8mjyUSZcYhjsis2KkLQNWEZpbix52/z0j4Cm0jU1CR6DHsBRRqioe3GKgIJS4PlJhYsu2m64w=
+  on:
+    tags: true
+    repo: Barbarrosa/ts-left-join
