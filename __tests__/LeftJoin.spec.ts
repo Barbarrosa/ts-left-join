@@ -7,12 +7,14 @@ seed(7437599372);
 const leftField = random.word();
 const rightField = random.word();
 
-describe.each([
+const describeData = [
     ['string', random.word(), random.word()],
     ['number', random.number(), random.number()],
     ['symbol', Symbol.for('valueOne'), Symbol.for('valueTwo')],
-])('%s key', (_name: string, valueOne: ObjectKey, valueTwo: ObjectKey) => {
-    test.each([
+    ['object identity', {[random.word()]: random.word()}, {[random.word()]: random.word()}],
+];
+describe.each(describeData)('%s key', (_name: string, valueOne: ObjectKey|object, valueTwo: ObjectKey|object) => {
+    const testData = [
         [
             'empty left',
             'empty right',
@@ -73,18 +75,22 @@ describe.each([
             [{[leftField]: valueOne},{[leftField]: valueTwo}],
             [{[rightField]: valueTwo},{[rightField]: valueOne},{[rightField]: valueTwo}],
         ],
-    ])('%s, %s',
-    <T extends { [key:string]: any}>(
+    ];
+
+    type PossibleValues = typeof valueOne|typeof valueTwo;
+    type LeftCollection = {[K in typeof leftField]:PossibleValues}[];
+    type RightCollection = {[K in typeof rightField]:PossibleValues}[];
+    test.each(testData)('%s, %s',(
         leftName: string,
         rightName: string,
-        leftCollection: T[],
-        rightCollection: T[]
+        leftCollection: LeftCollection,
+        rightCollection: RightCollection
     ) => {
         expect(
             LeftJoin(
-                leftName,
+                leftName as typeof testData[any][0] & string,
                 leftCollection,
-                rightName,
+                rightName as Exclude<typeof testData[any][1] & string,typeof leftName>,
                 rightCollection,
                 leftField,
                 rightField

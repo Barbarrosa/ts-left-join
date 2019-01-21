@@ -147,6 +147,203 @@ Array [
 ]
 `;
 
+exports[`object identity key empty left, empty right 1`] = `Array []`;
+
+exports[`object identity key empty left, one right 1`] = `Array []`;
+
+exports[`object identity key one left, empty right 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": Object {
+        "red": "global",
+      },
+    },
+  },
+]
+`;
+
+exports[`object identity key one left, one right match 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": Object {
+        "red": "global",
+      },
+    },
+    "one right match": Object {
+      "Ferry": Object {
+        "red": "global",
+      },
+    },
+  },
+]
+`;
+
+exports[`object identity key one left, one right non-match 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": Object {
+        "red": "global",
+      },
+    },
+  },
+]
+`;
+
+exports[`object identity key one left, two right multiple match 1`] = `
+Array [
+  Object {
+    "one left": Object {
+      "Connecticut": Object {
+        "red": "global",
+      },
+    },
+    "two right multiple match": Object {
+      "Ferry": Object {
+        "red": "global",
+      },
+    },
+  },
+  Object {
+    "one left": Object {
+      "Connecticut": Object {
+        "red": "global",
+      },
+    },
+    "two right multiple match": Object {
+      "Ferry": Object {
+        "red": "global",
+      },
+    },
+  },
+]
+`;
+
+exports[`object identity key two left, one right match 1`] = `
+Array [
+  Object {
+    "one right match": Object {
+      "Ferry": Object {
+        "red": "global",
+      },
+    },
+    "two left": Object {
+      "Connecticut": Object {
+        "red": "global",
+      },
+    },
+  },
+  Object {
+    "two left": Object {
+      "Connecticut": Object {
+        "SMTP": "Kip",
+      },
+    },
+  },
+]
+`;
+
+exports[`object identity key two left, three right different match w/ one multiple 1`] = `
+Array [
+  Object {
+    "three right different match w/ one multiple": Object {
+      "Ferry": Object {
+        "red": "global",
+      },
+    },
+    "two left": Object {
+      "Connecticut": Object {
+        "red": "global",
+      },
+    },
+  },
+  Object {
+    "three right different match w/ one multiple": Object {
+      "Ferry": Object {
+        "SMTP": "Kip",
+      },
+    },
+    "two left": Object {
+      "Connecticut": Object {
+        "SMTP": "Kip",
+      },
+    },
+  },
+  Object {
+    "three right different match w/ one multiple": Object {
+      "Ferry": Object {
+        "SMTP": "Kip",
+      },
+    },
+    "two left": Object {
+      "Connecticut": Object {
+        "SMTP": "Kip",
+      },
+    },
+  },
+]
+`;
+
+exports[`object identity key two left, two right different match 1`] = `
+Array [
+  Object {
+    "two left": Object {
+      "Connecticut": Object {
+        "red": "global",
+      },
+    },
+    "two right different match": Object {
+      "Ferry": Object {
+        "red": "global",
+      },
+    },
+  },
+  Object {
+    "two left": Object {
+      "Connecticut": Object {
+        "SMTP": "Kip",
+      },
+    },
+    "two right different match": Object {
+      "Ferry": Object {
+        "SMTP": "Kip",
+      },
+    },
+  },
+]
+`;
+
+exports[`object identity key two left, two right same match 1`] = `
+Array [
+  Object {
+    "two left": Object {
+      "Connecticut": Object {
+        "red": "global",
+      },
+    },
+    "two right same match": Object {
+      "Ferry": Object {
+        "red": "global",
+      },
+    },
+  },
+  Object {
+    "two left": Object {
+      "Connecticut": Object {
+        "red": "global",
+      },
+    },
+    "two right same match": Object {
+      "Ferry": Object {
+        "red": "global",
+      },
+    },
+  },
+]
+`;
+
 exports[`string key empty left, empty right 1`] = `Array []`;
 
 exports[`string key empty left, one right 1`] = `Array []`;

@@ -43,3 +43,21 @@ The value `best_buds` now contains the following.
     },
 ]
 ```
+
+### Type Checking
+This library uses strict type checking to validate that your fields match your specified data structures.
+If you don't intend to take advantage of this feature or haven't specified your data structures yet, then
+you can circumvent the type checking as shown below.
+
+```typescript
+const best_buds = LeftJoin(
+    dogName as string,
+    dogs,
+    // Circumvent field name overlap check
+    "cat" as Exclude<string, typeof dogName>,
+    cats,
+    // Circumvent row field name checks
+    "preference" as keyof typeof dogs[any],
+    "best_feature" as keyof typeof cats[any]
+);
+```

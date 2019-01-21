@@ -1,35 +1,40 @@
-import { ObjectKey } from "ObjectKey";
-
-type LookupList<C extends string,L> =  { [V in C]: L };
-
 export default function LeftJoin<
-    R extends F,
-    S extends K,
-    G extends Exclude<ObjectKey,J>,
-    J extends Exclude<ObjectKey,G>,
-    F extends ObjectKey,
-    K extends ObjectKey,
-    B extends { [P in F]: any },
-    L extends { [Z in K]: any },
+    B extends { [P:string]: any },
+    L extends { [Z:string]: any },
+    R extends keyof B,
+    S extends keyof L,
+    U1 extends { [P:string]: B; },
+    U2 extends { [Z:string]: L; },
+    G extends keyof U1,
+    J extends keyof U2,
     C extends B[R] & L[S],
-    U extends { [P in G]: B; } & { [Z in J]?: L; }
+    U extends U1 & Partial<U2>
 >(
-    leftResultAlias: G, leftCollection: B[], rightResultAlias: J, rightCollection: L[], leftField: R, rightField: S
+    leftResultAlias: G,
+    leftCollection: B[],
+    rightResultAlias: Exclude<J,typeof leftResultAlias>,
+    rightCollection: L[],
+    leftField: R,
+    rightField: S
 ): U[] {
 
-    const rightBuckets: LookupList<C,L[]> = rightCollection.reduce((rightBucketsPart,rightRow) => {
+    const rightBuckets: Map<C,L[]> = rightCollection.reduce((rightBucketsPart,rightRow) => {
         const rightValue = rightRow[rightField];
-        const rightBucket = rightBucketsPart[rightValue] || [];
-        rightBucketsPart[rightValue] = [...rightBucket, rightRow];
+        let rightBucket = rightBucketsPart.get(rightValue);
+        if(!rightBucket) {
+            rightBucket = [];
+            rightBucketsPart.set(rightValue, rightBucket);
+        }
+        rightBucket.push(rightRow);
         return rightBucketsPart;
-    }, {} as LookupList<C,L[]>);
+    }, new Map<C,L[]>());
 
     return leftCollection.reduce((joinedRows: U[], leftRow: B) => {
         const leftValue: C = leftRow[leftField];
         const leftRowData: U = {
             [leftResultAlias]: leftRow,
         } as U;
-        const rightBucket = rightBuckets[leftValue];
+        const rightBucket = rightBuckets.get(leftValue);
         if(rightBucket) {
             rightBucket.forEach((rightValue: L) => {
                 joinedRows.push({
