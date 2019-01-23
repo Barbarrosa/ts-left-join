@@ -1,3 +1,4 @@
+type ResultType<U1,U2,G extends keyof U1,B> = U1 extends { [K in G]: B } ? U1 & Partial<U2> : never;
 export default function LeftJoin<
     B extends { [P:string]: any },
     L extends { [Z:string]: any },
@@ -8,7 +9,7 @@ export default function LeftJoin<
     G extends keyof U1,
     J extends keyof U2,
     C extends B[R] & L[S],
-    U extends U1 & Partial<U2>
+    U extends ResultType<U1,U2,G,B>
 >(
     leftResultAlias: G,
     leftCollection: B[],
